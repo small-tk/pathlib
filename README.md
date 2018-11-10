@@ -22,12 +22,24 @@ package main
 import "github.com/small-tk/pathlib"
 
 func main (){
-	p := pathlib.New("../")
+	p := New("test.txt")
 
 	fmt.Println(p.Absolute())
 	fmt.Println(p.Cwd())
-	fmt.Println(p.Exists())
 	fmt.Println(p.Parent())
+	fmt.Println(p.Touch())
+
+	fmt.Println(p.Unlink())
+	fmt.Println(p.MkDir(os.ModePerm, true))
+	fmt.Println(p.RmDir())
+	fmt.Println(p.Open())
+	fmt.Println(p.Chmod(os.ModePerm))
+	fmt.Println(p.Chmod(os.ModePerm))
+
+	fmt.Println(p.Exists())
+	fmt.Println(p.IsDir())
+	fmt.Println(p.IsFile())
+	fmt.Println(p.IsAbs())
 }
 
 ```
