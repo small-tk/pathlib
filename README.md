@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/small-tk/pathlib)](https://goreportcard.com/report/github.com/small-tk/pathlib) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/asmcos/requests/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/small-tk/pathlib)](https://goreportcard.com/report/github.com/small-tk/pathlib) [![license](https://img.shields.io/github/license/small-tk/pathlib.svg)](https://github.com/small-tk/pathlib/blob/master/LICENSE)
 
 # pathlib
 
