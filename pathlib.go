@@ -10,7 +10,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-// base Path
+// Path
 type Path struct {
 	Path string
 }
@@ -104,7 +104,7 @@ func (p *Path) Exists() bool {
 	return err == nil || os.IsExist(err)
 }
 
-// Isdir reports Whether this path is a directory.
+// IsDir reports Whether this path is a directory.
 func (p *Path) IsDir() bool {
 	f, err := os.Stat(p.Path)
 	if err != nil {
