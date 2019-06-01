@@ -23,8 +23,13 @@ func New(path string) *Path {
 }
 
 // Absolute Returns an absolute representation of path.
-func (p *Path) Absolute() (string, error) {
-	return filepath.Abs(p.Path)
+func (p *Path) Absolute() (*Path, error) {
+	pth, err := filepath.Abs(p.Path)
+	if err != nil {
+		return nil, errors.Wrap(err, "get absolute failed")
+	}
+	newP := New(pth)
+	return newP, nil
 }
 
 // Cwd Return a new path pointing to the current working directory.
@@ -43,7 +48,7 @@ func (p *Path) Parent() (*Path, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "get parent failed")
 	}
-	dir := filepath.Dir(pth)
+	dir := filepath.Dir(pth.Path)
 	newP := New(dir)
 	return newP, nil
 }
@@ -92,10 +97,11 @@ func (p *Path) Chmod(mode os.FileMode) error {
 }
 
 // JoinPath Returns a new path, Combine current path with one or several arguments
-func (p *Path) JoinPath(elem ...string) string {
+func (p *Path) JoinPath(elem ...string) *Path {
 	temp := []string{p.Path}
 	elem = append(temp, elem[0:]...)
-	return path.Join(elem...)
+	newP := New(path.Join(elem...))
+	return newP
 }
 
 // Exists reports current path parent exists.
